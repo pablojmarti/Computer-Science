@@ -1,0 +1,18 @@
+import tweepy
+import os
+
+#using your own consumer keys and access keys to access your twitter account
+CONSUMER_KEY = 'MY_CONSUMER_KEY'
+CONSUMER_SECRET = 'MY_CONSUMER_SECRET'
+ACCESS_KEY = 'MY_ACCESS_KEY'
+ACCESS_SECRET = 'MY_ACCESS_SECRET'
+
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.secure = True
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+# access the Twitter API using tweepy with OAuth
+api = tweepy.API(auth) 
+#getting the parameter passed via the shell command from the Arduino Sketch
+ 
+#UpdateStatus of twitter called with the image file
+api.update_with_media(os.path.abspath('./tedcruz3_0.jpg'), 'sdf')
